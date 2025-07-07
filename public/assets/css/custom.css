@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+body{
+	font-family: 'Bebas Neue', cursive !important;
+}
+.form-control{
+    border-radius: 10px !important;
+   height: 40px;
+   font-size: 15px !important;
+}
+
+.logo-text{
+	font-family: 'Bebas Neue', cursive !important;
+	font-size: 30px !important;
+	color: white !important;
+}
+
+.description{
+	font-family: 'Inter', sans-serif !important;
+	font-size: 15px !important;
+	color: white !important;
+	text-align: center;
+}
+
+.link{
+	color: rgb(145, 5, 24);
+}
+
+.link:hover{
+	text-decoration: none;
+	color: white;
+}
+
+select {
+	-webkit-appearance: none;  /* Chrome/Safari */
+	-moz-appearance: none;     /* Firefox */
+	appearance: none;          /* Modern browsers */
+	background-color: #f0f0f0; /* Now this should work */
+	color: #333;
+  }
+
+.delete_purchase{
+    cursor: pointer;
+}
+
+.profile_section{
+
+}
+
+.profile_section .pro_pic{
+	display: block;
+}
+.profile_section .pro_pic form input{
+	border: none;
+}
+
+
+
+.profile_section .pro_details{
+
+}
+
+.profile_section .pro_details ul{
+	list-style: none;
+	display: block;
+	padding: 4px;
+}
+
+.profile_section .pro_details ul li{
+
+}
+.profile_content{
+
+}
+
+.c-button {
+	border-radius: 30px !important;
+	border: solid 1px white !important;
+	height: 50px !important;
+	font-size: 20px !important;
+}
+
+.login-box-body{
+	border-radius: 30px !important;
+	background-color: rgb(13, 20, 26) !important;
+}

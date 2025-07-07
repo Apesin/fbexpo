@@ -1,0 +1,245 @@
+.shop-title {
+    color: #800020;
+    font-family: Lora;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23.04px;
+    text-align: left;
+}
+
+.shop-title2 {
+    font-family: Lora;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 53.76px;
+    text-align: left;
+}
+
+.card {
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    border-radius: 10px;
+    height: 227px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-family: Lora;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+}
+
+.card-icon {
+    height: 20px !important;
+    width: 20px;
+}
+
+.icon-text {
+    font-family: Lora;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17.92px;
+    text-align: left;
+    color: #7D7D7D;
+}
+
+.margin-top {
+    height: 10px;
+}
+
+.price {
+    font-family: Lora;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25.6px;
+    text-align: left;
+    color: #DC7A7A;
+    text-decoration: line-through;
+}
+
+.selling-price {
+    font-family: Noto Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27.24px;
+    text-align: left;
+    color: #800020;
+}
+
+.space-w {
+    width: 10px;
+}
+
+.space-h {
+    height: 10px;
+}
+.status{
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    position: absolute;
+    font-family: Noto Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.07px;
+    text-align: left;
+
+}
+
+.custom-shadow {
+    box-shadow: 0 4px 8px #B7B7B740;
+    border: none;
+}
+
+.card:hover {
+    transform: scale(1.20); /* Makes the card slightly bigger */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increases shadow on hover */
+    z-index: 8;
+}
+
+.no-hover {
+    pointer-events: none; /* Disables all mouse interactions */
+}
+
+.load-more {
+    width: 264px;
+    height: 67px;
+    opacity: 0px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 2px solid #800020;
+    color: #800020;
+    font-family: Lora;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23.04px;
+    text-align: center; 
+}
+
+/*****DETAILS****/
+
+.details-title{
+font-family: Lora;
+font-size: 32px;
+font-weight: 600;
+line-height: 40.96px;
+text-align: left;
+}
+
+.details-title2{
+    font-family: Lora;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 40.96px;
+    padding-top: 30px;
+    text-align: left;
+}
+
+.details-price{
+    font-family: Noto Sans;
+font-size: 32px;
+font-weight: 700;
+line-height: 43.58px;
+text-align: left;
+color: #800020;
+}
+
+.details-image{
+    width: 100%;
+}
+
+.btn-color{
+    height: 30px;
+    padding: 5px;
+    background-color: #800020;
+    color: white;
+    font-family: Noto Sans;
+    font-size: 14.86px;
+    font-weight: 500;
+    line-height: 20.24px;
+    text-align: left;
+}
+
+.detials-form{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    border: 1px solid rgba(24, 23, 23, 0.342);
+}
+
+.details-body{
+    padding: 80px;
+}
+
+.car-images{
+    margin-top: 10px;
+    width: 20%;
+    border-radius: 20px;
+}
+
+.key-info{
+font-family: Lora;
+font-size: 24px;
+font-weight: 600;
+line-height: 30.72px;
+text-align: left;
+}
+
+.info-text{
+font-family: Lora;
+font-size: 20.14px;
+font-weight: 500;
+line-height: 25.78px;
+text-align: left;
+
+}
+
+.description{
+font-family: Noto Sans;
+font-size: 18px;
+font-weight: 400;
+line-height: 28.8px;
+text-align: left;
+
+}
+
+.custom-col {
+    /* Default styling */
+}
+
+@media (max-width: 1120px) {
+    .custom-col {
+        flex: 0 0 50%; /* Makes the column take up 50% width */
+        max-width: 50%; /* Ensures the column does not exceed 50% width */
+    }
+}
+
+@media (max-width: 1120px) {
+    .c2{
+        width: 100%;
+    }
+}
+
+@media (max-width: 990px){
+    .custom-col{
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%; 
+    }
+
+    .car-images{
+        width: 50%;
+    
+    }
+}
+
+#main-image {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}

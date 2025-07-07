@@ -1,0 +1,18 @@
+<% if (messages.success.length > 0) { %>
+    <div class="alert alert-block alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+        <i class="ace-icon fa fa-times"></i>
+      </button>  
+      <i class="ace-icon fa fa-check green"></i>  
+      <%= messages.success[0] %>
+    </div>
+  <% } else if (messages.error.length > 0) { %>  
+    <div class="alert alert-block alert-danger">
+      <button type="button" class="close" data-dismiss="alert">
+        <i class="ace-icon fa fa-times"></i>
+      </button>  
+      <i class="ace-icon fa fa-close red"></i> <%= messages.error[0] %>
+    </div>
+  <% } %>
+  
+  

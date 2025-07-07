@@ -1,0 +1,67 @@
+.error{
+	color: red;
+}
+.no-image-record{
+	height: 32px;
+	padding: 6px;
+	text-align: center !important;
+    float: none !important;
+}
+
+.admin-bg{
+    font-family: 'Lora';
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.login-layout{
+	background: url('../images/landing/carshop.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+body{
+    font-size: 20px !important;
+}
+
+.input-form{
+    height: 65px;
+    padding: 20px 40px 20px 14px;
+    gap: 10px;
+    border-radius: 4px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    
+    font-family: Noto Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.52px;
+    text-align: left;
+    
+}
+
+label{
+    font-size: 24px;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+    input[type=checkbox] {
+      -ms-transform: none !important; /* IE */
+      -moz-transform: none !important; /* FF */
+      -webkit-transform: none !important; /* Safari and Chrome */
+      -o-transform: none !important; /* Opera */
+      transform: none !important; /* Reset to normal size */
+      padding: 0 !important; /* Reset padding */
+    }
+  }

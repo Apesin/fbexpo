@@ -1,0 +1,626 @@
+@font-face {
+    font-family: 'calculator';
+    src: url('../../font/Calculator.ttf') format('truetype'),
+         url('../../font/Calculator2.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  *, *:before, *:after {
+      -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    }
+    
+    ::selection {
+      background: #000;
+      color: #aaf;
+    }
+    .alternate ::selection {
+      background: #800020;
+      color: #000;
+    }
+    
+    body{
+      font-family: "Outfit";
+    }
+  
+    .inner {
+      padding: 20px;
+    }s
+  
+    .alternate {
+      background-color: #f8f9fa;
+    }
+  
+    /* Center the nav items */
+    .navbar-nav {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-link{
+      color: #000;
+    }
+  
+    .navbar-nav .nav-item {
+      display: inline-block;
+      margin: 0 30px;
+      
+      
+    }
+  
+    .navbar-brand{
+      margin: 30px 180px;
+      font-family: 'Luxurious Roman';
+      font-size: 30px;
+      font-weight: bold;
+    }
+  
+    /**ACTIVE NAV*/
+  
+    .navbar-nav .nav-link {
+      position: relative;
+    }
+    
+    /* Hide the dot by default */
+    .navbar-nav .nav-link::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 8px; 
+      height: 8px; 
+      background-color: #800020;
+      border-radius: 50%; 
+      bottom: -10px; 
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      transition: transform 0.3s ease;
+    }
+    
+    /* Show the dot when the nav-item is active */
+    .navbar-nav .nav-item.active .nav-link::after {
+      transform: translateX(-50%) scale(1); /* Display the dot */
+    }
+    
+    .banner{
+      background-color: #800020;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .banner-img{
+      width: 100%;
+      height: 100vh;
+      background-color: #2e2c2d;
+      object-fit: cover;
+    }
+  
+    .slanted-square {
+      width: 50%;
+      height: 100vh;
+      background-color: #800020;
+      z-index: 1; /* Lower z-index to allow carousel to extend underneath */
+      clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+      justify-content: left;
+      align-items: left;
+      overflow: visible; /* Allow text to overflow */
+      transition: clip-path 0.3s ease;
+      position: relative; /* Ensure it stays above the carousel */
+  }
+  
+  .slanted-square h1,
+  .slanted-square p {
+      position: relative;
+      z-index: 2; /* Ensure the text is above other content */
+      margin: 0;
+  }
+  
+  .slanted-square h1 {
+      font-size: 3em; /* Adjust the size as needed */
+      line-height: 1.2em;
+      white-space: nowrap; /* Prevent text from wrapping if necessary */
+  }
+  
+  .slanted-square p {
+      font-size: 1.2em; /* Adjust font size */
+      margin-top: 20px; /* Add spacing between text elements */
+  }
+  
+  .carousel {
+      position: absolute; /* Absolute positioning to allow overlap */
+      top: 20;
+      right: 0; /* Align carousel to the right */
+      width: 90%; /* Make the carousel full width */
+      height: 100vh; /* Full viewport height */
+      overflow: hidden;
+      z-index: 0; /* Ensure carousel is behind the slanted square */
+  }
+  
+  .carousel-inner {
+      display: flex;
+      width: 300%; /* Adjust according to the number of items */
+      transition: transform 0.5s ease;
+  }
+  
+  .carousel-item {
+      flex: 1 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100%;
+  }
+  
+  .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+  
+  .carousel-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 80%;
+      width: fit-content;
+  }
+  
+  .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 2;
+  }
+  
+  .carousel-control.prev {
+    left: calc(60% - 200px); /* Position closer to the slanted square */
+  }
+  
+  .carousel-control.next {
+      right: 10px;
+  }
+  
+  /* Remove slant on small screens */
+  @media (max-width: 768px) {
+    .slanted-square {
+        clip-path: none;
+        border: 1px solid #800020;
+        width: 100%;
+        height: auto; /* Allow height to adjust based on content */
+    }
+  
+    .carousel {
+        position: relative; /* Change positioning to relative on small screens */
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height based on content */
+        top: auto; /* Reset top position */
+        right: auto; /* Reset right position */
+    }
+  
+    .carousel-control {
+      position: absolute;
+      top: 25%;
+      transform: translateY(-50%);
+      background-color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 2;
+  }
+  
+  .carousel-control.prev {
+    left: 10px; /* Position closer to the slanted square */
+  }
+  }
+  
+  
+    .dim-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the desired dim effect */
+      z-index: 1;
+    }
+  
+    #banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      z-index: 2;
+    }
+  
+    #inner-banner-text{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding-left: 30px;
+      padding-right: 30px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      z-index: 2;
+    }
+    
+    #banner-text-h {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      z-index: 2;
+    }
+  
+    .scroll{
+      position: absolute;
+      left: 20%;
+      bottom: 10%;
+      color: white;
+    }
+  
+    #banner-text h1 {
+      font-family: 'Luxurious Roman';
+      font-size: 60px;
+    }
+  
+    .bold{
+      font-weight: bold;
+    }
+  
+    .light100{
+      font-weight: lighter;
+    }
+  
+    .rm{
+      font-family: "Roboto Mono";
+    }
+  
+    .rm-top-margin{
+      margin-top: 0px;
+    }
+  
+    .rm-bottom-margin{
+      margin-bottom: 0px;
+    }
+  
+    .image{
+      width: 80%;
+    }
+  
+    .mg-100{
+      margin-top: 300px;
+    }
+  
+    .mg-50{
+      margin-top: 150px;
+    }
+  
+    .padding-top{
+      padding-top: 100px;
+    }
+  
+    .capital{
+      text-transform: uppercase;
+    }
+  
+    .border-radius-20{
+      border-radius: 20px;
+    }
+  
+    .button{
+      padding:15px 80px 15px 80px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      background-color: #800020;
+    }
+  
+    .button2{
+      padding:15px 80px 15px 80px;
+      border-radius: 18px;
+      border: white solid 1px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+    }
+  
+    .button3{
+      padding:15px 80px 15px 80px;
+      border-radius: 18px;
+      color: black;
+      background-color: white;
+      font-weight: bold;
+      font-size: 24px;
+      height: 80px;
+    }
+  
+    .guiter{
+      position: absolute; right: 0px;
+    }
+  
+    .gallery-section{
+      background: url('../../images/landing/highlight.png') center/cover no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+  
+    .overlay {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(8, 4, 34, 0.6);
+      backdrop-filter: blur(10px); 
+      z-index: 1;
+    }
+  
+    .content {
+      z-index: 2;
+      color: white; 
+      text-align: center;
+    }
+  
+  
+    .gallery-image{
+      border: white solid 1px;
+      border-radius: 20px;
+      width: 215px;
+      height: 222px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      
+    }
+  
+    .footer{
+      margin-top: 0px;
+      color: white;
+      background-color: black;
+    }
+  
+    .input{
+      height: 80px;
+      border-radius: 10px;
+      font-size: 26px;
+    }
+  
+    .footer-logo{
+      font-family: 'Luxurious Roman';
+      color: white;
+      font-size: 35px;
+    }
+  
+    .footer-text{
+      color: #222222;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  
+    .footer-items{
+      list-style: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      justify-content: right;
+      padding: 0;
+    }
+  
+    .link{
+      text-decoration: none;
+      color: white;
+    }
+  
+    .social {
+      list-style: none;
+      padding: 0px;
+      display: flex;
+      justify-content: left;
+    }
+  
+    .social li {
+      margin: 0 10px;
+    }
+  
+  
+  
+    /*** font**/
+  
+    .x0{
+      font-size: 60px;
+    }
+  
+    .s18{
+      font-size: 18px;
+    }
+  
+    .s24{
+      font-size: 20px;
+    }
+  
+    .s36 {
+      font-size: 28px;
+    }
+  
+    .s40{
+      font-size: 30px;
+    }
+  
+    .s60{
+      font-size: 60px;
+    }
+    
+    /**SMALL SCREENS*/
+  
+    @media (max-width: 768px) {
+      .navbar-brand{
+        margin: 30px 0px;
+      }
+  
+      .image{
+        width: 100%;
+      }
+  
+      .gallery-image{
+      
+        margin: 4px;
+        
+      }
+  
+      .scroll{
+        display: none;
+      }
+  
+      .s60{
+        font-size: 30px;
+      }
+  
+      .s36{
+        font-size: 16px;
+      }
+      .text-start{
+        text-align: center !important;
+      }
+  
+    }
+  
+  
+    /**FLIP CLOCK CSS*/
+  
+    #mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://github.com/gokercebeci/flipclock/raw/master/css/mask.png');
+      z-index: 2;
+  }
+  h1 { 
+    margin: 0 10px; 
+    font-size: 70px; 
+    font-weight: bold;
+    text-shadow: 0 0 2px #fff;
+  }
+  .clearfix {
+      clear: both;
+  }
+  #page {
+      margin: 0 auto;
+      width: 600px;
+  }
+  #container {
+      opacity: .9;
+  }
+  #usage li {
+      position: relative;
+      margin: 5px 0;
+      padding: 10px;
+      color: #222;
+      background: #fff;
+  }
+  #usage code {
+      position: absolute;
+      top:0;
+      right:0;
+      padding: 10px;
+      color: #eee;
+      border: 1px solid #333;
+      background: #000;
+  }
+  
+  .test{
+    font-family: 'calculator';
+  }
+  
+      /* Style for the modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+      }
+  
+      /* Style for the modal content */
+      .modal-content {
+        max-width: 80%;
+        max-height: 80%;
+        width: auto;
+        height: auto;
+        margin: auto;
+      }
+  
+      /* Style for the close button */
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+      }
+  
+      @media only screen and (max-width: 600px) {
+        .modal-content {
+          max-width: 90%;
+          max-height: 50%;
+        }
+  
+        #inner-banner-text{
+          position: absolute;
+          top: 50%;
+          padding-left: 10px;
+          padding-right: 10px;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          color: white;
+          font-size: 2em;
+          z-index: 2;
+        }
+  
+        #banner-text-h{
+          top: 16%;
+        }
+  
+        #inner-banner-text-sm {
+          position: absolute;
+          top: 5%;
+          left: 50%;
+          transform: translateX(-50%);
+          padding-left: 10px;
+          padding-right: 10px;
+          text-align: center;
+          color: white;
+          font-size: 1em;
+          width: 80%; /* Adjust the width as needed */
+          z-index: 2;
+      }
+      
+  
+        #expand-sm{
+          width: 100% !important;
+          padding: 0px;
+          text-align: center !important;
+  
+        }
+      }

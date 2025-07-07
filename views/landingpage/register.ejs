@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>FBExpo - Player Registration</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="assets/plugins/iCheck/square/blue.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- In your HTML head -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-3.2.6.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-3.2.6.min.js"></script>
+  
+  <style>
+    .login-page {
+      background: url('assets/images/login-bg2.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .player-fields { 
+      display: none;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease;
+    }
+    .player-fields.visible {
+      display: block;
+      max-height: 2000px;
+    }
+    .error { color: red; }
+    .error-border { border: 1px solid red; }
+  </style>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-box-body">
+    <% if (messages && messages.error) { %>
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h4><i class="icon fa fa-ban"></i> Error!</h4>
+      <%= messages.error %>
+    </div>
+  <% } %>
+  
+    <center>
+      <h2 class="logo-text">FBEXPO</h2>
+    </center>
+    <h3 class="description">Player Registration</h3>
+<% if (messages.error) { %>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Notiflix.Notify.failure(`<%= messages.error %>`);
+    });
+  </script>
+<% } %>
+    <br>
+    <form id="registrationForm" action="/register" method="post">
+
+      <!-- Role Selection -->
+      <div class="form-group has-feedback">
+        <select name="role" class="form-control" required>
+          <option value="">Register As*</option>
+          <option value="player">Players (Active or Retired)</option>
+          <option value="football_club">Football Club</option>
+          <option value="sponsorship_brands"> Sponsorship Brands</option>
+          <option value="agent">Agents</option>
+        </select>
+        <span class="glyphicon glyphicon-chevron-down form-control-feedback"></span>
+      </div>
+
+      <!-- Basic Info -->
+      <div class="form-group has-feedback">
+        <input type="text" name="name" class="form-control" placeholder="Full Name*" required>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="email" name="email" class="form-control" placeholder="Email*" required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="tel" name="phone" class="form-control" placeholder="Phone Number*" required>
+        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+      </div>
+
+      <!-- Player-Specific Fields -->
+      <div id="playerFields" class="player-fields">
+        <div class="form-group">
+          <label>Date of Birth*</label>
+          <input type="date" name="dob" class="form-control" data-required>
+        </div>
+
+        <div class="form-group">
+          <label>Nationality*</label>
+          <input type="text" name="nationality" class="form-control" data-required>
+        </div>
+
+        <div class="form-group">
+          <label>Player Status*</label>
+          <select name="playerStatus" class="form-control" data-required>
+            <option value="">Select...</option>
+            <option value="Professional">Professional</option>
+            <option value="Amateur">Amateur</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Current Club Status*</label>
+          <select name="clubStatus" class="form-control" data-required>
+            <option value="">Select...</option>
+            <option value="Free Agent">Free Agent</option>
+            <option value="Academy">Academy</option>
+            <option value="Permanent Player">Permanent Player</option>
+            <option value="On Market/ Available">On Market/ Available for Transfer</option>
+            <option value="Trialist">Trialist</option>
+            <option value="Youthm and Academy">Youth and Academy</option>
+          </select>
+        </div>
+
+         <div class="form-group">
+          <label>Position</label>
+          <select name="position" class="form-control" data-required>
+            <option value="">Select...</option>
+            <option value="goal_keeper">Goal Keeper</option>
+            <option value="defender">Defender</option>
+            <option value="midfielder">Midfielder</option>
+            <option value="attacker">Attacker</option>
+
+          </select>
+        </div>
+
+         <div class="form-group">
+          <label>Height</label>
+          <input type="text" name="height" class="form-control" data-required>
+        </div>
+
+         <div class="form-group">
+          <label>Current location (Enter city name)</label>
+          <input type="text" name="location" class="form-control" data-required>
+        </div>
+
+
+        <div class="form-group">
+          <label>Highlight Video Link (YouTube/Google Drive)</label>
+          <input type="url" name="videoLink" class="form-control" placeholder="https://">
+        </div>
+
+        <div class="form-group">
+          <label>Stats (Optional)</label>
+          <textarea name="stats" class="form-control" placeholder="Appearances, Goals, Position, etc."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="hasAgent" id="hasAgent"> 
+            Do you have a Licensed FIFA Agent?
+          </label>
+        </div>
+
+        <div class="form-group" id="agentConsentGroup" style="display:none;">
+          <label>
+            <input type="checkbox" name="agentConsent"> 
+            Agent has consented to this registration
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat c-button">Register</button>
+        </div>
+      </div>
+    </form>
+    <br>
+    <div class="text-center" style="margin-top: 20px;">
+      <p>Already have an account? <a class="resend-otp link" href="login.php">Sign In</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery 3 -->
+<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="assets/plugins/iCheck/icheck.min.js"></script>
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Notiflix.Notify.init({
+        position: 'right-top',
+        timeout: 5000,
+        fontSize: '14px',
+        width: '300px'
+      });
+      
+      Notiflix.Loading.init({
+        backgroundColor: 'rgba(0,0,0,0.8)'
+      });
+    });
+  </script>
+<script>
+  $(function () {
+    // Initialize Notiflix with custom settings
+    Notiflix.Notify.init({
+      position: 'right-top',
+      distance: '20px',
+      borderRadius: '5px'
+    });
+
+    // Show/hide player fields - existing functionality
+    $('select[name="role"]').change(function() {
+      const isPlayer = $(this).val() === 'player';
+      $('#playerFields').toggleClass('visible', isPlayer);
+      $('#playerFields [data-required]').prop('required', isPlayer);
+    }).trigger('change');
+
+    // Toggle agent consent field - existing functionality
+    $('#hasAgent').change(function() {
+      $('#agentConsentGroup').toggle(this.checked);
+    });
+
+    // Enhanced form validation with Notiflix
+    $('#registrationForm').submit(function(e) {
+      e.preventDefault();
+      let isValid = true;
+      let firstError = null;
+      const errorMessages = [];
+      
+      // Clear previous error highlights
+      $('.error-border').removeClass('error-border');
+
+      // Validate visible required fields
+      $(this).find(':input[required]:visible').each(function() {
+        const $field = $(this);
+        let fieldValid = true;
+        let errorMsg = '';
+        
+        // Check empty values
+        if (!$field.val().trim()) {
+          errorMsg = `${$field.attr('name')} is required`;
+          fieldValid = false;
+        } 
+        // Email validation
+        else if ($field.attr('type') === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($field.val())) {
+          errorMsg = 'Please enter a valid email address';
+          fieldValid = false;
+        }
+        // Date validation
+        else if ($field.attr('type') === 'date' && !$field.val()) {
+          errorMsg = 'Please select a valid date';
+          fieldValid = false;
+        }
+        // Custom validation for other field types...
+        
+        if (!fieldValid) {
+          $field.addClass('error-border');
+          isValid = false;
+          
+          // Add error message with field label
+          const fieldLabel = $field.closest('.form-group').find('label').text() || $field.attr('name');
+          errorMessages.push(`${fieldLabel}: ${errorMsg}`);
+          
+          if (!firstError) firstError = $field;
+        }
+      });
+
+      if (!isValid) {
+        // Show all error messages with Notiflix
+        errorMessages.forEach(msg => {
+          Notiflix.Notify.failure(msg);
+        });
+        
+        // Scroll to first error if exists
+        if (firstError) {
+          $('html, body').animate({
+            scrollTop: firstError.offset().top - 100
+          }, 500);
+          firstError.focus();
+        }
+      } else {
+        // Show loading indicator
+        Notiflix.Loading.standard('Processing...');
+        
+        // Submit form via AJAX or standard submission
+        const formData = new FormData(this);
+        
+        $.ajax({
+          url: $(this).attr('action'),
+          method: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(response) {
+            Notiflix.Loading.remove();
+            let d = JSON.parse(response);
+            if (d.success) {
+              console.log("success here");
+              Notiflix.Notify.success('Registration successful!');
+              window.location.href = '/registration-success';
+            } else {
+              // Handle server-side validation errors
+              if (response.errors) {
+                Object.entries(response.errors).forEach(([field, error]) => {
+                  Notiflix.Notify.failure(`${field}: ${error}`);
+                });
+              }
+            }
+          },
+          error: function(xhr) {
+            Notiflix.Loading.remove();
+            console.log(xhr.responseText);
+            let err = JSON.parse(xhr.responseText);
+            if (err.errors) {
+                Object.entries(err.errors).forEach(([field, error]) => {
+                  Notiflix.Notify.failure(`${field}: ${error}`);
+                });
+              }else{
+              Notiflix.Notify.failure(`Erro processing request, try again`);
+
+              }
+          }
+        });
+      }
+    });
+
+    // Add animation to error fields
+    $(document).on('focus', '.error-border', function() {
+      $(this).removeClass('error-border');
+    });
+  });
+</script>
+</body>
+</html>

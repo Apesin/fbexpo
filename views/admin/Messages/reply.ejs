@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Dashboard - Admin</title>
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" /> 
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/font-awesome/4.5.0/css/font-awesome.min.css" /> 
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/css/fonts.googleapis.com.css" /> 
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" /> 
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="<%=nodeSiteUrl%>/css/custom.css" /> 
+		<script src="<%=nodeSiteUrl%>/js/jquery-2.1.4.min.js"></script>
+		<!-- ace settings handler -->
+		<script src="<%=nodeSiteUrl%>/js/ace-extra.min.js"></script>
+		<script src="<%=nodeSiteUrl%>/js/jquery-ui.custom.min.js"></script>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+
+	</head>
+    <body class="no-skin">
+        <div class="main-content">
+            <div class="main-content-inner">
+
+            <form id="myForm">
+                <div>
+                    <label for="form-field-select-1">Subject </label> 
+                    <input name="id" value="<%= id %>" hidden/>
+                    <input type="text" name="subject" id="form-field-select-1" value="Re: <%= subject %>" placeholder="Enter Message subject" class="form-control input-form">  
+                    <span class="error"><%=errorData.subject%></span> 
+                </div>  <br> 
+            
+                <div>
+                    <label for="form-field-select-1">Message</label> 
+                    <textarea name="message" class="form-control input-form"></textarea>  
+                    <span class="error"><%=errorData.message%></span> 
+                </div>  <br> 
+                <button class="btn btn-primary">SEND</button>
+            </form>
+            </div>
+            </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    // Get the form element
+    const form = document.getElementById('myForm');
+
+    // Add event listener for form submission
+    form.addEventListener('submit', function(e) {
+        // Prevent default form submission
+        e.preventDefault();
+
+        // Perform form validation (if needed)
+        const id = document.querySelector('input[name="id"]').value;
+        const subject = document.querySelector('input[name="subject"]').value;
+        const message = document.querySelector('textarea[name="message"]').value;
+
+        if (!subject || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        const formData = new FormData(form);
+
+        fetch('<%=nodeSiteUrl%>/send-reply', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Mail sent successfully!');
+                // You can also redirect or clear the form here
+            } else {
+                alert(JSON.stringify(data));
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
+
+    </script>
+    </body>
+
+<%- include('../elements/footer'); %> 

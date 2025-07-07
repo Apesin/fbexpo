@@ -1,0 +1,745 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  }
+  
+  ::selection {
+    background: #80002052;
+    color: white;
+  }
+  .alternate ::selection {
+    background: #80002052;
+    color: white;
+  }
+  
+  body{
+    font-family: "Lora";
+    background-color: #2e2c2d;
+    background: url('../../images/landing/bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+  }
+
+  .inner {
+    padding: 20px;
+  }s
+
+  .alternate {
+    background-color: #f8f9fa;
+  }
+
+/* 
+  .navbar{
+    height: 100px;
+  } */
+
+  /* Center the nav items */
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link{
+    color: #000;
+  }
+
+  .navbar-nav .nav-item {
+    display: inline-block;
+    margin: 0 30px;
+  }
+
+  .navbar-brand{
+    margin: 30px 180px;
+    font-family: 'Luxurious Roman';
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+
+  /**ACTIVE NAV*/
+
+  .navbar-nav .nav-link {
+    position: relative;
+  }
+  
+  /* Hide the dot by default */
+  .navbar-nav .nav-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px; 
+    height: 8px; 
+    background-color: #800020;
+    border-radius: 50%; 
+    bottom: -10px; 
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Show the dot when the nav-item is active */
+  .navbar-nav .nav-item.active .nav-link::after {
+    transform: translateX(-50%) scale(1); /* Display the dot */
+  }
+
+  .spacer{
+    width: 150px;
+  }
+  
+  .banner{
+    background-color: #800020;
+    width: auto;
+    height: 100%;
+  }
+
+  .banner-img{
+    width: auto;
+    background-color: #2e2c2d;
+    background: url('../../images/landing/bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+  }
+
+  .slanted-square {
+    width: 45%;
+    height: auto;
+    background-color: #800020;
+    z-index: 1; 
+    clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+    justify-content: left;
+    align-items: left;
+    overflow: visible; 
+    transition: clip-path 0.3s ease;
+    position: relative; 
+    padding-top: 10px;
+}
+
+.slanted-square h1,
+.slanted-square p {
+    position: relative;
+    z-index: 2; 
+    margin: 0;
+}
+
+.slanted-square h1 {
+    font-size: 3em; 
+    line-height: 1.2em;
+    white-space: nowrap; 
+}
+
+.slanted-square p {
+    font-size: 1.2em; 
+    margin-top: 20px; 
+}
+
+
+
+.fade-in {
+  opacity: 1;
+}
+
+.c-container {
+  position: relative;
+  padding: 20px;
+}
+
+.carousel-title-top-right {
+  position: absolute;
+  top: -10px; 
+  right: 15px;
+  z-index: 10;
+  padding: 10px 15px; 
+  color: white; 
+  font-family: Lora;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40.96px;
+  opacity: 0.8; /* Adjust opacity to make it visible */
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 700px; /* Full height to occupy available space */
+  overflow: hidden; /* Ensures that any overflow is hidden */
+}
+
+.carousel-item {
+  width: 100%; /* Ensure each item takes full width */
+  height: 85%; /* Ensure each item takes full height */
+}
+
+.carousel-item img {
+  width: calc(100% - 50px); /* Ensure the image takes full width */
+  height: 100%; /* Ensure the image takes full height */
+  object-fit: cover; /* Ensure the image covers the entire area while maintaining aspect ratio */
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border-radius: 10px;
+  background-color: #80002079;
+  color: white;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 20px;
+  /* z-index: 2; */
+}
+
+.carousel-action-button {
+  margin-top: 0px;
+}
+
+.vis{
+  visibility: hidden;
+}
+
+.vis1{
+  visibility: block;
+}
+
+
+/* .active{
+  display: flex;
+} */
+
+
+.carousel-button {
+  position: absolute;
+  /* bottom: -calc(5% - 10px); */
+  right: 40px;
+  background-color: white;
+  color: #800020;
+  padding: 14px 80px;
+  border-radius: 5px;
+  border: 2px solid #000; /* Black inner border */
+  box-shadow: 0 0 0 2px white; /* White outer border */
+  font-weight: 700;
+  font-size: 18px;
+  width: auto; /* Fixed width of 240px */
+  height: 65px; /* Fixed height of 65px */
+  gap: 10px;
+  opacity: 1; /* Set opacity to 1 for full visibility */
+}
+
+.carousel-button > a {
+  color: #800020;
+  text-decoration: none;
+}
+
+
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #80002079;
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 30px;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+
+
+.padding-left-w2{
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.padding-left-w{
+  padding-left: 100px;
+}
+
+.carousel-title{
+  font-family: Lora;
+font-size: 42px;
+font-weight: 700;
+line-height: 40.96px;
+text-align: left;
+width: 244px;
+height: 41px;
+top: 50px;
+right: 40px;
+gap: 0px;
+opacity: 0px;
+color: white;
+position: absolute;
+z-index: 3;
+}
+
+.footer {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+  height: 100px;
+  width: 100%;
+  z-index: 6;
+}
+
+.footer-items{
+  font-family: Lora;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  padding-top: 20px;
+  align-content: center;
+}
+
+.footer-items a{
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-items img {
+  margin-right: 10px;
+}
+
+.mobile-topper{
+
+}
+
+@media (max-width: 1493px) {
+  .custom-visible {
+      display: block;
+      /* width: 100vw; */
+  }
+
+  .carousel-inner {
+    height: 500px; /* Full height to occupy available space */
+  }
+
+.mobile-topper{
+  height: 100px;
+}
+
+  .custom-visible1 {
+    display: block;
+}
+
+.carousel-control-prev{
+  margin-left: 30px;
+}
+
+.carousel-item img {
+  padding-left: 30px;
+}
+
+  .slanted-square{
+    width: 80%;
+  }
+
+  .carousel-button2 {
+    position: absolute;
+    bottom: calc(20% - 10px);
+    right: 40px;
+    background-color: white;
+    color: #800020;
+    padding: 14px 80px;
+    border-radius: 5px;
+    border: 2px solid #000; /* Black inner border */
+    box-shadow: 0 0 0 2px white; /* White outer border */
+    font-weight: 700;
+    font-size: 18px;
+    width: auto; /* Fixed width of 240px */
+    height: 65px; /* Fixed height of 65px */
+    gap: 10px;
+    opacity: 1;
+  }
+  
+  .top-spacer{
+    height: 100px;
+  }
+
+  .top-spacer-2{
+    margin-top: 80px;
+  }
+
+  
+}
+
+@media (min-width: 1494px) {
+  .custom-visible {
+      display: block;
+  }
+
+  .custom-visible1 {
+    display: none;
+ }
+ 
+}
+
+/* Remove slant on small screens */
+@media (max-width: 768px) {
+  .slanted-square {
+      clip-path: none;
+      border: 1px solid #800020;
+      width: 100%;
+      height: auto;
+  }
+
+  .padding-left-w2{
+    padding: 20px;
+    padding-right: 0px;
+  }
+
+  .top-spacer{
+    margin-top: 80px;
+  }
+
+  .top-spacer-2{
+    margin-top: 80px;
+  }
+
+  /* .carousel {
+      position: relative;
+      width: 100%; 
+      height: auto; 
+      top: auto; 
+      right: auto; 
+  } */
+
+  /* .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #80002079;
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 2;
+} */
+
+/* .carousel-container{
+  height: 50vh;
+  background-color: #2e2c2d;
+    background: url('../../images/landing/bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+} */
+
+/* .carousel-control.prev {
+  left: 10px; 
+} */
+
+.footer{
+  height: auto;
+}
+
+.spacer{
+  width: 0px;
+}
+}
+
+
+  .scroll{
+    position: absolute;
+    left: 20%;
+    bottom: 10%;
+    color: white;
+  }
+
+  #banner-text h1 {
+    font-family: 'Luxurious Roman';
+    font-size: 60px;
+  }
+
+  .bold{
+    font-weight: bold;
+  }
+
+  .light100{
+    font-weight: lighter;
+  }
+
+  .rm{
+    font-family: "Roboto Mono";
+  }
+
+  .rm-top-margin{
+    margin-top: 0px;
+  }
+
+  .rm-bottom-margin{
+    margin-bottom: 0px;
+  }
+
+  .image{
+    width: 80%;
+  }
+
+  .mg-100{
+    margin-top: 300px;
+  }
+
+  .mg-50{
+    margin-top: 150px;
+  }
+
+  .padding-top{
+    padding-top: 50px;
+  }
+
+
+  .overflow-text {
+    position: relative; 
+    width: auto;
+    height: auto;
+    z-index: 5;
+    font-family: Lora;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 500;
+    line-height: 34px;
+    text-align: left;
+
+  }
+  
+
+  .capital{
+    text-transform: uppercase;
+  }
+
+  .border-radius-20{
+    border-radius: 20px;
+  }
+
+  .button{
+    padding:16px 40px 16px 40px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: #800020;
+  }
+
+  .button2{
+    padding:15px 80px 15px 80px;
+    border-radius: 18px;
+    border: white solid 1px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .button3{
+    padding:15px 80px 15px 80px;
+    border-radius: 18px;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    font-size: 24px;
+    height: 80px;
+  }
+  
+
+  /*** font**/
+
+  .x0{
+    font-size: 60px;
+  }
+
+  .s18{
+    font-size: 18px;
+  }
+
+  .s24{
+    font-size: 20px;
+  }
+
+  .s36 {
+    font-size: 28px;
+  }
+
+  .s40{
+    font-size: 40px;
+  }
+
+  .s60{
+    font-size: 60px;
+  }
+  
+  /**SMALL SCREENS*/
+
+  @media (max-width: 768px) {
+    .navbar-brand{
+      margin: 30px 0px;
+    }
+
+    .image{
+      width: 100%;
+    }
+
+    .gallery-image{
+    
+      margin: 4px;
+      
+    }
+
+    .scroll{
+      display: none;
+    }
+
+    .s60{
+      font-size: 30px;
+    }
+
+    .s36{
+      font-size: 16px;
+    }
+    .text-start{
+      text-align: center !important;
+    }
+
+  }
+
+
+/* Contact srtle */
+
+.padding-top-2{
+  padding-top: 30px;
+}
+
+.modal-h{
+  font-family: Lora;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.04px;
+  text-align: left;
+    
+}
+
+.c-title{
+font-family: Lora;
+font-size: 28px;
+font-weight: 700;
+line-height: 23.04px;
+text-align: left;
+}
+
+
+.input-form{
+height: 65px;
+padding: 20px 40px 20px 14px;
+gap: 10px;
+border-radius: 4px 0px 0px 0px;
+border: 1px 0px 0px 0px;
+opacity: 0px;
+
+font-family: Noto Sans;
+font-size: 18px;
+font-weight: 400;
+line-height: 24.52px;
+text-align: left;
+
+  }
+  
+
+  .input-form2{
+    height: 65px;
+    padding: 20px 40px 20px 14px;
+    gap: 10px;
+    border-radius: 4px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    
+    font-family: Noto Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.52px;
+    text-align: left;
+    
+      }
+
+  .input-form-txt{
+height: 200px;
+padding: 20px 40px 20px 14px;
+gap: 10px;
+border-radius: 4px 0px 0px 0px;
+border: 1px 0px 0px 0px;
+opacity: 0px;
+
+font-family: Noto Sans;
+font-size: 18px;
+font-weight: 400;
+line-height: 24.52px;
+text-align: left;
+
+  }
+
+  .input-form-txt2{
+    height: 100px;
+    padding: 20px 40px 20px 14px;
+    gap: 10px;
+    border-radius: 4px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    font-family: Noto Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.52px;
+    text-align: left;
+    
+      }
+
+  .submit-button{
+    width: 100%;
+    height: 65px;
+    padding: 20px 10px 20px 10px;
+    gap: 10px;
+    border: 4px #800020 solid;
+    border-radius: 4px;
+    font-family: Noto Sans;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24.52px;
+    text-align: center;
+
+    background-color: #800020;
+    color: white;
+
+  }
+
+  .responsive-text{
+    font-size: 16px;
+  }
+
+
+  .contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    flex-wrap: wrap; /* Allows wrapping of items */
+  }
+  
+  .contact-container > * {
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 576px) { /* Adjust the breakpoint as needed */
+    .contact-container {
+      flex-direction: column;
+      align-items: flex-start; /* Align items to the start */
+    }
+  
+    .contact-container > * {
+      margin-left: 0;
+      margin-bottom: 10px; /* Add bottom margin for vertical spacing */
+    }
+    
+    .contact-container > *:last-child {
+      margin-bottom: 0; /* Remove margin from the last item */
+    }
+  }
+  

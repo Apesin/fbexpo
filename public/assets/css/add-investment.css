@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+body {
+  font-family: 'Bebas Neue', cursive !important;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.header {
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.container {
+  padding: 2rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.investment-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.form-left, .form-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+label {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.date-range {
+  display: flex;
+  gap: 1rem;
+}
+
+.dropzone {
+  border: 1px dashed #aaa;
+  padding: 4rem;
+  text-align: center;
+  color: #555;
+  border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cancel, .submit {
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  border: 2px solid #a00;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel {
+  background: #fff;
+  color: #a00;
+}
+
+.submit {
+  background: #a00;
+  color: #fff;
+  border: none;
+}
+
+
+.drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop-area.highlight {
+  background-color: #f0f8ff;
+}
+
+#file-list {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+
+@media (max-width: 768px) {
+  .investment-form {
+    flex-direction: column;
+  }
+  .buttons {
+    justify-content: center;
+  }
+}

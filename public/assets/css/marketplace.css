@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* * {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+} */
+
+body {
+            font-family: 'Bebas Neue', cursive !important;
+            margin: 0;
+            background-color: #f4f6f8;
+            display: flex;
+            min-height: 100vh; /* Ensure full viewport height */
+            font-size: 16px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            width: 250px; /* Slightly wider for better readability */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-sizing: border-box;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .sidebar-item:hover {
+            background-color: #334155;
+        }
+
+        .sidebar-icon {
+            margin-right: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 15px; /* Space between header elements */
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #e2e8f0;
+            border-radius: 20px;
+            padding: 8px;
+            flex-grow: 1; /* Allow search bar to take more width */
+            min-width: 200px; /* Minimum width for the search bar */
+            max-width: 40%;
+
+        }
+
+        .search-input {
+            border: none;
+            background-color: transparent;
+            padding: 8px;
+            flex-grow: 1;
+            color: #334155;
+            min-width: 0; /* Prevent overflow */
+        }
+
+        .search-button {
+            background-color: #dc2626;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 40px;
+            cursor: pointer;
+        }
+
+        .new-investments-button {
+            background-color: #dc2626;
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 15px 40px;
+            cursor: pointer;
+        }
+
+        .notification-icon {
+            color: #4a5568;
+            cursor: pointer;
+        }
+
+        /* Marketplace Grid */
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider min width */
+            gap: 20px;
+        }
+
+        .marketplace-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribute space vertically */
+            min-height: 150px; /* Ensure a minimum height for consistent layout */
+        }
+
+        .card-image-placeholder {
+            background-color: #e2e8f0;
+            height: 120px; /* Slightly taller placeholder */
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #718096;
+            
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+
+        .card-price {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #718096;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            font-size: 14px;
+            box-sizing: content-box !important;
+            -webkit-box-sizing: content-box !important;
+        }
+
+        .view-investment-button {
+            background-color: transparent;
+            color: #dc2626;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-weight: bold;
+            align-self: flex-start; /* Align button to the start of the card */
+        }
+
+        /* Responsive adjustments using media queries */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Stack sidebar and main content */
+            }
+
+            .sidebar {
+                width: 100%;
+                flex-direction: row; /* Display items horizontally */
+                overflow-x: auto; /* Allow scrolling for many items */
+                padding: 10px;
+                align-items: center;
+                justify-content: flex-start; /* Align items to the left */
+            }
+
+            .sidebar-item {
+                margin-right: 15px;
+                margin-bottom: 0;
+                flex-shrink: 0; /* Prevent items from shrinking too much */
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .header {
+                flex-direction: column; /* Stack header elements */
+                align-items: stretch; /* Make items take full width */
+            }
+
+            .search-bar {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .marketplace-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .marketplace-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+
+            .new-investments-button {
+                padding: 8px 16px; /* Adjust button padding */
+            }
+        }
