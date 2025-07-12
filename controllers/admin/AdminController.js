@@ -108,10 +108,10 @@ async function dashboard(req, res) {
   req.flash('error', 'This is an error message!');
 
   let users  = await accountService.findUsers();
-    console.log("users",users);
 
     res.render('admin/dashboard',{page_title:"Admin - Dashboard",data:data,LoginUser:LoginUser,controller:controller,
-        action:action,users:users,
+        action:action,users: JSON.stringify(users),
+        controller: 'dashboard',
         messages: {
         success: req.flash('success'),
         error: req.flash('error')

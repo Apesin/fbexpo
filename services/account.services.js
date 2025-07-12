@@ -72,8 +72,28 @@ async  checkExistingUser(email) {
         .findOne({ email: email });
 }
 
+async calculateAgeAndYearOfBirth(birthDate) {
+  const today = new Date();
+  const birthDateObj = new Date(birthDate);
+  
+  // Calculate age
+  let age = today.getFullYear() - birthDateObj.getFullYear();
+  const monthDiff = today.getMonth() - birthDateObj.getMonth();
+  
+  // Adjust age if birthday hasn't occurred yet this year
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+    age--;
+  }
+  
+  // Get year of birth
+  const yearOfBirth = birthDateObj.getFullYear();
+  
+  return { age, yearOfBirth };
+}
+
 // Prepare user data
- prepareUserData(body) {
+ async prepareUserData(body) {
+  const d = await this.calculateAgeAndYearOfBirth(body.dob);
     return {
         name: body.name,
         email: body.email,
@@ -82,14 +102,23 @@ async  checkExistingUser(email) {
         status: 'active',
         createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
         updatedAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+        currentLocation: body.currentLocation,
         // Include player-specific data if needed
         ...(body.role === 'player' && {
             playerData: {
                 dob: body.dob,
+                age: d.age,
+                yearOfBirth: d.yearOfBirth,
+                physique: {
+                  height: body.height,
+                  weight: body.weight
+                },
+                position: body.position,
                 nationality: body.nationality,
                 playerStatus: body.playerStatus,
                 clubStatus: body.clubStatus,
                 videoLink: body.videoLink,
+                currentSalary: body.currentSalary,
                 stats: body.stats,
                 hasAgent: body.hasAgent || false,
                 agentConsent: body.agentConsent || false

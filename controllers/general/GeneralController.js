@@ -110,12 +110,13 @@ async function register(req, res) {
                 dob: input.dob,
                 email: input.email,
                 phone: input.phone,
-                location: input.location,
                 position: input.position,
                 height: input.height,
                 nationality: input.nationality,
                 playerStatus: input.playerStatus,
                 clubStatus: input.clubStatus,
+                currentSalary: input.currentSalary,
+                currentLocation: input.location,
                 videoLink: input.videoLink || null,
                 stats: input.stats || null,
                 hasAgent: input.hasAgent === 'on',
@@ -197,92 +198,6 @@ async function registerSuccess(req, res) {
 };
 
 exports.registerSuccess = registerSuccess;
-
-async function shop(req, res) { 
-    res.set('content-type', 'text/html; charset=mycharset'); 
-    data = {};    
-    action = 'landing'; 
-
-    const page = parseInt(req.query.page, 10) || 1;
-    const limit = 8;
-    const offset = (page - 1) * limit;
-
-    // Fetch one extra record to determine if there are more pages
-    let cars = await db.cars.findAll({
-        order: [['dateCreated', 'DESC']], 
-        limit: limit + 1, // Fetch one more than the limit
-        offset: offset
-    });
-
-    // Check if there's an extra record
-    const hasMore = cars.length > limit;
-
-    // If there is an extra record, remove it from the list
-    if (hasMore) {
-        cars.pop(); // Remove the extra record
-    }
-
-    res.render('landingpage/shop', {
-        page_title: "Brian's car shop - Shop",
-        controller: controller, 
-        module_name: module_name,
-        nodeSiteUrl: nodeSiteUrl,
-        cars: cars,
-        page: page,
-        hasMore: hasMore
-    });    
-};      
-exports.shop = shop;
-
- 
-
-async function shopDetails(req, res) { 
-    let id = req.params.id;
-    res.set('content-type' , 'text/html; charset=mycharset'); 
-    data = {};    
-    action = 'landing'; 
-
-    let details = await galleryService.getCarDetails(id);
-    console.log(details);
-
-if(details){
-    res.render('landingpage/carDetails',{
-        page_title:"Brian Car Shop - Car Details",
-        controller:controller, 
-        module_name:module_name,
-        nodeSiteUrl: nodeSiteUrl,
-        details: details,
-        suggestions: []
-    });
-}else{
-    res.redirect("../shop");
-}    
-};      
-exports.shopDetails = shopDetails;
-
-async function preview(req, res) { 
-    let id = req.params.id;
-    res.set('content-type' , 'text/html; charset=mycharset'); 
-    data = {};    
-    action = 'landing'; 
-
-    let details = await galleryService.getCarDetails(id);
-    console.log(details);
-
-if(details){
-    res.render('landingpage/preview',{
-        page_title:"Brian Car Shop - Car Details",
-        controller:controller, 
-        module_name:module_name,
-        nodeSiteUrl: nodeSiteUrl,
-        details: details,
-        suggestions: []
-    });
-}else{
-    res.redirect("../");
-}    
-};      
-exports.preview = preview;
 
 async function page404(req, res) { 
 

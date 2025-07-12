@@ -1,7 +1,7 @@
 {
-  "name": "obtuse",
+  "name": "fbexpo",
   "version": "1.0.0",
-  "description": "Obtuse admin and api portal by Apesin Technology",
+  "description": "fbexpo and api portal by Apesin Technology",
   "main": "app.js",
   "dependencies": {
     "axios": "^1.4.0",
@@ -32,10 +32,11 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
-    "test": "nodemon start"
+    "test": "nodemon start",
+    "start": "node app.js"
   },
   "keywords": [
-    "bow"
+    ""
   ],
   "author": "Niniola Adesina",
   "license": "ISC"

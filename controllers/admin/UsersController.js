@@ -38,10 +38,10 @@ async function players_list(req, res) {
     res.set('content-type' , 'text/html; charset=mycharset'); 
     data = {};    
     action = 'list'; 
-    const allRecord = await accountService.getAllUsers(); 
+  let users  = await accountService.findUsers();
     res.render('admin/Users/players',{
         page_title:" List",
-        data:allRecord.data, 
+        data: JSON.stringify(users), 
         controller:controller, 
         action:action,
         module_name:module_name

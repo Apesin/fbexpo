@@ -49,9 +49,6 @@ router.post('/send-reply', MessagesController.sendReply);
 
 /** langind page */
 // router.get('/home', GeneralController.landing);
-router.get('/shop', GeneralController.shop);
-router.get('/shop-details/:id', GeneralController.shopDetails);
-router.get('/preview/:id', GeneralController.preview);
 
 module.exports = router;        
  
