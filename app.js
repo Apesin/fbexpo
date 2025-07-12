@@ -14,8 +14,8 @@ app.use(cors());
 app.use(fileUpload()); 
   
 // Global Constants
-global.nodeSiteUrl = 'http://localhost:8083'; // Node server URL  
-global.nodeAdminUrl = 'http://localhost:8083/admin'; // Admin URL  
+global.nodeSiteUrl = 'https://fbexpo.onrender.com'; // Node server URL  
+global.nodeAdminUrl = 'https://fbexpo.onrender.com/admin'; // Admin URL  
 global.sk = "77777777777777"; // Secret key
 global.gloBaseUrl = "";
 global.siteTitle = 'FBExpo Admin';
